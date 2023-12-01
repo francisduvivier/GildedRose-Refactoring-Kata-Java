@@ -23,7 +23,7 @@ public class StandardAgingItemTest {
         int startQuality = 20;
         StandardAgingItem item = new StandardAgingItem("general", 10, startQuality);
 
-        item.increaseAge(1);
+        item.increaseAge();
 
         assertEquals(startQuality - 1, item.quality);
     }
@@ -38,7 +38,9 @@ public class StandardAgingItemTest {
         int startSellIn = 10;
         StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
-        item.increaseAge(startSellIn);
+        for (int i = 0; i < startSellIn; i++) {
+            item.increaseAge();
+        }
 
         assertEquals(startQuality - startSellIn, item.quality);
     }
@@ -52,7 +54,9 @@ public class StandardAgingItemTest {
         int startSellIn = 10;
         StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
-        item.increaseAge(startQuality + 10);
+        for (int i = 0; i < startQuality + 10; i++) {
+            item.increaseAge();
+        }
 
         assertEquals(0, item.quality);
     }
@@ -67,25 +71,8 @@ public class StandardAgingItemTest {
         StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         int extraAgeAfterSellInPassed = 3;
-        item.increaseAge(startSellIn + extraAgeAfterSellInPassed);
-
-        int expectedQuality = startQuality - (startSellIn + 2 * extraAgeAfterSellInPassed);
-        assertEquals(expectedQuality, item.quality);
-    }
-
-    /**
-     * Test following with incremental aging
-     * Once the sell by date has passed, Quality degrades twice as fast
-     */
-    @Test
-    public void withIncrementalAgingDecreaseQualityAtDoubleSpeedWhenSellInHasPassedAfterAlreadyPassed() {
-        int startQuality = 20;
-        int startSellIn = 10;
-        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
-
-        int extraAgeAfterSellInPassed = 3;
         for (int i = 0; i < startSellIn + extraAgeAfterSellInPassed; i++) {
-            item.increaseAge(1);
+            item.increaseAge();
         }
 
         int expectedQuality = startQuality - (startSellIn + 2 * extraAgeAfterSellInPassed);
@@ -104,7 +91,9 @@ public class StandardAgingItemTest {
         StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 2.0);
-        item.increaseAge(startSellIn + minimalDaysToZeroAfterSellInPassed);
+        for (int i = 0; i < startSellIn + minimalDaysToZeroAfterSellInPassed; i++) {
+            item.increaseAge();
+        }
 
         assertEquals(0, item.quality);
     }

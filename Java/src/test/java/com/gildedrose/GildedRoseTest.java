@@ -15,8 +15,8 @@ class GildedRoseTest {
         }
 
         @Override
-        public void increaseAge(int amount) {
-            totalAgeIncrease += amount;
+        public void increaseAge() {
+            totalAgeIncrease++;
         }
     }
 
