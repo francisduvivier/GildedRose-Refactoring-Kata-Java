@@ -47,7 +47,7 @@ public class CustomAgingItem extends AgingItem {
                         }
                     }
                 } else {
-                    this.quality = this.quality - this.quality;
+                    this.quality = 0;
                 }
             } else {
                 if (this.quality < 50) {

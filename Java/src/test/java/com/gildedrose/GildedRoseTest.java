@@ -7,19 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
 
-    private static class SpiedUponAgingItem extends AgingItem {
-        int totalAgeIncrease = 0;
-
-        public SpiedUponAgingItem(String name, int sellIn, int quality) {
-            super(name, sellIn, quality);
-        }
-
-        @Override
-        public void increaseAge() {
-            totalAgeIncrease++;
-        }
-    }
-
     @Test
     void keepsItems() {
         AgingItem[] items = new AgingItem[]{
@@ -45,6 +32,19 @@ class GildedRoseTest {
         }
 
         assertEquals(spy.totalAgeIncrease, updateCalls);
+    }
+
+    private static class SpiedUponAgingItem extends AgingItem {
+        int totalAgeIncrease = 0;
+
+        public SpiedUponAgingItem(String name, int sellIn, int quality) {
+            super(name, sellIn, quality);
+        }
+
+        @Override
+        public void increaseAge() {
+            totalAgeIncrease++;
+        }
     }
 
 }

@@ -8,5 +8,5 @@ public abstract class AgingItem extends Item {
         super(name, sellIn, quality);
     }
 
-    public abstract void increaseAge() ;
+    public abstract void increaseAge();
 }
