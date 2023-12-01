@@ -11,7 +11,7 @@ public class TicketItemTest {
     @Test
     public void increasesQualityBy2WhenAges10DaysBeforeExpiry() {
         int startQuality = 20;
-        TicketItem item = new TicketItem("Aged Brie", 10, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", 10, startQuality);
 
         item.increaseAge();
 
@@ -25,7 +25,7 @@ public class TicketItemTest {
     @Test
     public void increasesQualityBy2WhenAges6DaysBeforeExpiry() {
         int startQuality = 20;
-        TicketItem item = new TicketItem("Aged Brie", 6, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", 6, startQuality);
 
         item.increaseAge();
 
@@ -38,7 +38,7 @@ public class TicketItemTest {
     @Test
     public void increasesQualityBy3WhenAges5DaysBeforeExpiry() {
         int startQuality = 20;
-        TicketItem item = new TicketItem("Aged Brie", 5, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", 5, startQuality);
 
         item.increaseAge();
 
@@ -52,7 +52,7 @@ public class TicketItemTest {
     @Test
     public void increasesQualityBy3WhenAges1DayBeforeExpiry() {
         int startQuality = 20;
-        TicketItem item = new TicketItem("Aged Brie", 1, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", 1, startQuality);
 
         item.increaseAge();
 
@@ -67,7 +67,7 @@ public class TicketItemTest {
     public void dropsQualityTo0WhenPastExpiry() {
         int startQuality = 20;
         int sellIn = 5;
-        TicketItem item = new TicketItem("Aged Brie", sellIn, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", sellIn, startQuality);
         for (int i = 0; i < sellIn + 5; i++) {
             item.increaseAge();
         }
@@ -82,7 +82,7 @@ public class TicketItemTest {
     public void dropsQualityTo0WhenJustPastExpiry() {
         int startQuality = 20;
         int sellIn = 5;
-        TicketItem item = new TicketItem("Aged Brie", sellIn, startQuality);
+        TicketItem item = new TicketItem("Backstage passes to a TAFKAL80ETC concert", sellIn, startQuality);
 
         for (int i = 0; i < sellIn + 1; i++) {
             item.increaseAge();

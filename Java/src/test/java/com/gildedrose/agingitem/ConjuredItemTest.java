@@ -15,7 +15,7 @@ public class ConjuredItemTest {
     @Test
     public void decreasesQualityByTwoWhenAgesBeforeExpiry() {
         int startQuality = 20;
-        ConjuredItem item = new ConjuredItem("general", 10, startQuality);
+        ConjuredItem item = new ConjuredItem("conjured", 10, startQuality);
 
         item.increaseAge();
 
@@ -30,7 +30,7 @@ public class ConjuredItemTest {
     public void decreasesQualityByTwoWhenAgesRightBeforeExpiry() {
         int startQuality = 40;
         int startSellIn = 10;
-        ConjuredItem item = new ConjuredItem("general", startSellIn, startQuality);
+        ConjuredItem item = new ConjuredItem("conjured", startSellIn, startQuality);
 
         for (int i = 0; i < startSellIn; i++) {
             item.increaseAge();
@@ -46,7 +46,7 @@ public class ConjuredItemTest {
     public void neverDecreasesQualityBelowZero() {
         int startQuality = 40;
         int startSellIn = 10;
-        ConjuredItem item = new ConjuredItem("general", startSellIn, startQuality);
+        ConjuredItem item = new ConjuredItem("conjured", startSellIn, startQuality);
 
         for (int i = 0; i < startQuality + 10; i++) {
             item.increaseAge();
@@ -62,7 +62,7 @@ public class ConjuredItemTest {
     public void decreaseQualityAtDoubleSpeedWhenSellInHasPassed() {
         int startQuality = 50;
         int startSellIn = 10;
-        ConjuredItem item = new ConjuredItem("general", startSellIn, startQuality);
+        ConjuredItem item = new ConjuredItem("conjured", startSellIn, startQuality);
 
         int extraAgeAfterSellInPassed = 3;
         for (int i = 0; i < startSellIn + extraAgeAfterSellInPassed; i++) {
@@ -82,7 +82,7 @@ public class ConjuredItemTest {
     public void decreaseQualityAtDoubleSpeedToZeroWhenSellInHasPassed() {
         int startQuality = 19;
         int startSellIn = 10;
-        ConjuredItem item = new ConjuredItem("general", startSellIn, startQuality);
+        ConjuredItem item = new ConjuredItem("conjured", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 4.0);
         for (int i = 0; i < startSellIn / 2 + minimalDaysToZeroAfterSellInPassed; i++) {
