@@ -73,6 +73,25 @@ public class StandardAgingItemTest {
         assertEquals(expectedQuality, item.quality);
     }
 
+    /**
+     * Test following with incremental aging
+     * Once the sell by date has passed, Quality degrades twice as fast
+     */
+    @Test
+    public void withIncrementalAgingDecreaseQualityAtDoubleSpeedWhenSellInHasPassedAfterAlreadyPassed() {
+        int startQuality = 20;
+        int startSellIn = 10;
+        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
+
+        int extraAgeAfterSellInPassed = 3;
+        for (int i = 0; i < startSellIn + extraAgeAfterSellInPassed; i++) {
+            item.increaseAge(1);
+        }
+
+        int expectedQuality = startQuality - (startSellIn + 2 * extraAgeAfterSellInPassed);
+        assertEquals(expectedQuality, item.quality);
+    }
+
 
     /**
      * Edge case test for:
