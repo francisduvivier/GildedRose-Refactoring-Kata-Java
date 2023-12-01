@@ -15,11 +15,13 @@ public class AgingItem {
 
     public void increaseAge(int amount) {
         for (int i = 0; i < amount; i++) {
-            if (this.item.sellIn > 0) {
-                this.item.sellIn--;
-            }
+            this.item.sellIn--;
             if (this.item.quality > 0) {
-                this.item.quality--;
+                if (this.item.sellIn >= 0 || this.item.quality == 1) {
+                    this.item.quality -= 1;
+                } else {
+                    this.item.quality -= 2;
+                }
             }
         }
     }
