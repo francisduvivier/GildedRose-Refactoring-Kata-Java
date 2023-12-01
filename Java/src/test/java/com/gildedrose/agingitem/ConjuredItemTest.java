@@ -80,12 +80,12 @@ public class ConjuredItemTest {
      */
     @Test
     public void decreaseQualityAtDoubleSpeedToZeroWhenSellInHasPassed() {
-        int startQuality = 19;
+        int startQuality = 29;
         int startSellIn = 10;
         ConjuredItem item = new ConjuredItem("conjured", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 4.0);
-        for (int i = 0; i < startSellIn / 2 + minimalDaysToZeroAfterSellInPassed; i++) {
+        for (int i = 0; i < startSellIn + minimalDaysToZeroAfterSellInPassed; i++) {
             item.increaseAge();
         }
 
