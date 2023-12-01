@@ -1,11 +1,11 @@
-package com.gildedrose.qualityitem;
+package com.gildedrose.agingitem;
 
 import com.gildedrose.Item;
 
-public class QualityItem {
+public class AgingItem {
     private Item item;
 
-    public QualityItem(String name, int sellIn, int quality) {
+    public AgingItem(String name, int sellIn, int quality) {
         item = new Item(name, sellIn, quality);
     }
 
