@@ -11,7 +11,7 @@ public class StandardAgingItemTest {
      */
     @Test
     public void qualityIsAccessible() {
-        StandardAgingItem item = new StandardAgingItem("general", 10, 20);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", 10, 20);
         assertEquals(20, item.quality);
     }
 
@@ -21,7 +21,7 @@ public class StandardAgingItemTest {
     @Test
     public void decreasesQualityByOneWhenAgesBeforeExpiry() {
         int startQuality = 20;
-        StandardAgingItem item = new StandardAgingItem("general", 10, startQuality);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", 10, startQuality);
 
         item.increaseAge();
 
@@ -36,7 +36,7 @@ public class StandardAgingItemTest {
     public void decreasesQualityByOneWhenAgesRightBeforeExpiry() {
         int startQuality = 20;
         int startSellIn = 10;
-        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", startSellIn, startQuality);
 
         for (int i = 0; i < startSellIn; i++) {
             item.increaseAge();
@@ -52,7 +52,7 @@ public class StandardAgingItemTest {
     public void neverDecreasesQualityBelowZero() {
         int startQuality = 20;
         int startSellIn = 10;
-        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", startSellIn, startQuality);
 
         for (int i = 0; i < startQuality + 10; i++) {
             item.increaseAge();
@@ -68,7 +68,7 @@ public class StandardAgingItemTest {
     public void decreaseQualityAtDoubleSpeedWhenSellInHasPassed() {
         int startQuality = 20;
         int startSellIn = 10;
-        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", startSellIn, startQuality);
 
         int extraAgeAfterSellInPassed = 3;
         for (int i = 0; i < startSellIn + extraAgeAfterSellInPassed; i++) {
@@ -88,7 +88,7 @@ public class StandardAgingItemTest {
     public void decreaseQualityAtDoubleSpeedToZeroWhenSellInHasPassed() {
         int startQuality = 19;
         int startSellIn = 10;
-        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("Standard Item", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 2.0);
         for (int i = 0; i < startSellIn + minimalDaysToZeroAfterSellInPassed; i++) {
