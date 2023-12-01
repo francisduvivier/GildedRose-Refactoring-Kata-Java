@@ -14,12 +14,11 @@ public class WellAgingItem extends AgingItem {
             return;
         }
         this.quality = this.quality + 1;
-
+        if (this.quality >= MAX_ITEM_QUALITY) {
+            return;
+        }
         if (this.sellIn < 0) {
             this.quality = this.quality + 1;
-        }
-        if (this.quality > MAX_ITEM_QUALITY) {
-            this.quality = MAX_ITEM_QUALITY;
         }
     }
 }
