@@ -12,7 +12,7 @@ public class StandardAgingItem extends AgingItem {
             return;
         }
         this.quality -= amount;
-        int amountOverExpiry = amount - (this.sellIn + 1);
+        int amountOverExpiry = amount - (Math.max(0, this.sellIn + 1));
         if (amountOverExpiry > 0) {
             // The amount of time that goes over the expiry is counted double
             this.quality -= amountOverExpiry;
