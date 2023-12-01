@@ -2,13 +2,6 @@ package com.gildedrose.agingitem;
 
 public class ConjuredItem extends StandardAgingItem {
     public ConjuredItem(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
-    }
-
-    @Override
-    public void increaseAge() {
-        super.increaseAge();
-        this.sellIn++;
-        super.increaseAge();
+        super(name, sellIn, quality, 2);
     }
 }
