@@ -18,6 +18,7 @@ public class AgingItemTest {
         AgingItem item = new AgingItem("general", 10, startQuality);
 
         item.increaseAge(1);
+
         assertEquals(startQuality - 1, item.getQuality());
     }
 
@@ -28,6 +29,7 @@ public class AgingItemTest {
         AgingItem item = new AgingItem("general", startSellIn, startQuality);
 
         item.increaseAge(startSellIn);
+
         assertEquals(startQuality - startSellIn, item.getQuality());
     }
 
@@ -38,6 +40,7 @@ public class AgingItemTest {
         AgingItem item = new AgingItem("general", startSellIn, startQuality);
 
         item.increaseAge(startQuality + 10);
+
         assertEquals(0, item.getQuality());
     }
 }
