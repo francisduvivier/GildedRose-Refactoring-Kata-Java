@@ -8,10 +8,6 @@ public class AgingItem extends Item {
         super(name, sellIn, quality);
     }
 
-    public int getQuality() {
-        return this.quality;
-    }
-
     public void increaseAge(int amount) {
         this.sellIn--;
         if (this.quality == 0) {

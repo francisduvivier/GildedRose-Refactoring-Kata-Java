@@ -12,7 +12,7 @@ public class AgingItemTest {
     @Test
     public void qualityIsAccessible() {
         AgingItem item = new AgingItem("general", 10, 20);
-        assertEquals(20, item.getQuality());
+        assertEquals(20, item.quality);
     }
 
     /**
@@ -25,7 +25,7 @@ public class AgingItemTest {
 
         item.increaseAge(1);
 
-        assertEquals(startQuality - 1, item.getQuality());
+        assertEquals(startQuality - 1, item.quality);
     }
 
     /**
@@ -40,7 +40,7 @@ public class AgingItemTest {
 
         item.increaseAge(startSellIn);
 
-        assertEquals(startQuality - startSellIn, item.getQuality());
+        assertEquals(startQuality - startSellIn, item.quality);
     }
 
     /**
@@ -54,7 +54,7 @@ public class AgingItemTest {
 
         item.increaseAge(startQuality + 10);
 
-        assertEquals(0, item.getQuality());
+        assertEquals(0, item.quality);
     }
 
     /**
@@ -70,7 +70,7 @@ public class AgingItemTest {
         item.increaseAge(startSellIn + extraAgeAfterSellInPassed);
 
         int expectedQuality = startQuality - (startSellIn + 2 * extraAgeAfterSellInPassed);
-        assertEquals(expectedQuality, item.getQuality());
+        assertEquals(expectedQuality, item.quality);
     }
 
 
@@ -87,6 +87,6 @@ public class AgingItemTest {
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 2.0);
         item.increaseAge(startSellIn + minimalDaysToZeroAfterSellInPassed);
 
-        assertEquals(0, item.getQuality());
+        assertEquals(0, item.quality);
     }
 }
