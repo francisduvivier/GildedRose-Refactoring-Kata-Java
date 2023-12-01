@@ -12,4 +12,15 @@ public class AgingItem {
     public int getQuality() {
         return this.item.quality;
     }
+
+    public void increaseAge(int amount) {
+        for (int i = 0; i < amount; i++) {
+            if (this.item.sellIn > 0) {
+                this.item.sellIn--;
+            }
+            if (this.item.quality > 0) {
+                this.item.quality--;
+            }
+        }
+    }
 }
