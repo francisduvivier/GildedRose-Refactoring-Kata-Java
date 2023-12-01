@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AgingItemTest {
+public class StandardAgingItemTest {
 
     /**
      * All items have a Quality value which denotes how valuable the item is
      */
     @Test
     public void qualityIsAccessible() {
-        AgingItem item = new AgingItem("general", 10, 20);
+        StandardAgingItem item = new StandardAgingItem("general", 10, 20);
         assertEquals(20, item.quality);
     }
 
@@ -21,7 +21,7 @@ public class AgingItemTest {
     @Test
     public void decreasesQualityByOneWhenAgesBeforeExpiry() {
         int startQuality = 20;
-        AgingItem item = new AgingItem("general", 10, startQuality);
+        StandardAgingItem item = new StandardAgingItem("general", 10, startQuality);
 
         item.increaseAge(1);
 
@@ -36,7 +36,7 @@ public class AgingItemTest {
     public void decreasesQualityByOneWhenAgesRightBeforeExpiry() {
         int startQuality = 20;
         int startSellIn = 10;
-        AgingItem item = new AgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         item.increaseAge(startSellIn);
 
@@ -50,7 +50,7 @@ public class AgingItemTest {
     public void neverDecreasesQualityBelowZero() {
         int startQuality = 20;
         int startSellIn = 10;
-        AgingItem item = new AgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         item.increaseAge(startQuality + 10);
 
@@ -64,7 +64,7 @@ public class AgingItemTest {
     public void decreaseQualityAtDoubleSpeedWhenSellInHasPassed() {
         int startQuality = 20;
         int startSellIn = 10;
-        AgingItem item = new AgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         int extraAgeAfterSellInPassed = 3;
         item.increaseAge(startSellIn + extraAgeAfterSellInPassed);
@@ -82,7 +82,7 @@ public class AgingItemTest {
     public void decreaseQualityAtDoubleSpeedToZeroWhenSellInHasPassed() {
         int startQuality = 19;
         int startSellIn = 10;
-        AgingItem item = new AgingItem("general", startSellIn, startQuality);
+        StandardAgingItem item = new StandardAgingItem("general", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 2.0);
         item.increaseAge(startSellIn + minimalDaysToZeroAfterSellInPassed);
