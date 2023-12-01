@@ -1,8 +1,15 @@
 package com.gildedrose.agingitem;
 
 public class StandardAgingItem extends AgingItem {
+    private final int qualityUpdateMultiplier;
+
     public StandardAgingItem(String name, int sellIn, int quality) {
+        this(name, sellIn, quality, 1);
+    }
+
+    protected StandardAgingItem(String name, int sellIn, int quality, int qualityUpdateMultiplier) {
         super(name, sellIn, quality);
+        this.qualityUpdateMultiplier = qualityUpdateMultiplier;
     }
 
     @Override
@@ -11,12 +18,14 @@ public class StandardAgingItem extends AgingItem {
         if (this.quality == 0) {
             return;
         }
-        this.quality--;
+        this.quality -= qualityUpdateMultiplier;
 
-        if (this.quality > 0 && // Ensure quality does not go below 0
-            this.sellIn < 0) {
+        if (this.sellIn < 0) {
             // The amount of time that goes over the expiry is counted double
-            this.quality--;
+            this.quality -= qualityUpdateMultiplier;
+        }
+        if (this.quality < 0) {
+            this.quality = 0;
         }
     }
 }
