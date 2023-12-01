@@ -14,15 +14,19 @@ public class AgingItem {
     }
 
     public void increaseAge(int amount) {
-        for (int i = 0; i < amount; i++) {
-            this.item.sellIn--;
-            if (this.item.quality > 0) {
-                if (this.item.sellIn >= 0 || this.item.quality == 1) {
-                    this.item.quality -= 1;
-                } else {
-                    this.item.quality -= 2;
-                }
-            }
+        this.item.sellIn--;
+        if (this.item.quality == 0) {
+            return;
+        }
+        this.item.quality -= amount;
+        int amountOverExpiry = amount - (this.item.sellIn + 1);
+        if (amountOverExpiry > 0) {
+            // The amount of time that goes over the expiry is counted double
+            this.item.quality -= amountOverExpiry;
+        }
+        // Make sure minimum quality is 0
+        if (this.item.quality < 0) {
+            this.item.quality = 0;
         }
     }
 }
