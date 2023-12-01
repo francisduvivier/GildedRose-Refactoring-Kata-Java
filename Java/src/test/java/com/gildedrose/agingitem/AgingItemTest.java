@@ -30,4 +30,14 @@ public class AgingItemTest {
         item.increaseAge(startSellIn);
         assertEquals(startQuality - startSellIn, item.getQuality());
     }
+
+    @Test
+    public void neverDecreasesQualityBelowZero() {
+        int startQuality = 20;
+        int startSellIn = 10;
+        AgingItem item = new AgingItem("general", startSellIn, startQuality);
+
+        item.increaseAge(startQuality + 10);
+        assertEquals(0, item.getQuality());
+    }
 }
