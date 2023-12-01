@@ -59,15 +59,15 @@ Write a script that will execute the system under test (see "config.gr" for deta
 
 Under the 'texttests' folder each test case has its own subdirectory. The name of the directory is the name of the test - in this case "ThirtyDays". The approved version of the output for that test case is kept in that directory. In this case we have three files:
 
-- __stderr.gr__ - the expected output to Standard Error (stderr)
-- __stdout.gr__ - the expected output to Standard Output (stdout)
-- __options.gr__ - the options to give on the command line when you run the System Under Test (SUT)
+- [__stderr.gr__](./ThirtyDays/stderr.gr) - the expected output to Standard Error (stderr)
+- [__stdout.gr__](./ThirtyDays/stdout.gr) - the expected output to Standard Output (stdout)
+- [__options.gr__](./ThirtyDays/options.gr) - the options to give on the command line when you run the System Under Test (SUT)
 
 In the directory above, there are configuration files for TextTest:
 
-- __config.gr__ - this tells TextTest where to find the SUT executable, and sets up options for how it runs the SUT and interprets the output.
-- __environment.gr__ - this file lists environment variables that will be set before TextTest runs the SUT. This is especially important for Java applications, that need to set the CLASSPATH environment variable in order to run properly.
-- __testsuite.gr__ - lists the constituent test cases of this suite. Change the order of the entries here to change the order they appear in the TextTest GUI.
+- [__config.gr__](./config.gr) - this tells TextTest where to find the SUT executable, and sets up options for how it runs the SUT and interprets the output.
+- [__environment.gr__](./environment.gr) - this file lists environment variables that will be set before TextTest runs the SUT. This is especially important for Java applications, that need to set the CLASSPATH environment variable in order to run properly.
+- [__testsuite.gr__](./testsuite.gr) - lists the constituent test cases of this suite. Change the order of the entries here to change the order they appear in the TextTest GUI.
 
 To run a test, click on it in the GUI and select "Run". TextTest will run it in a temporary (sandbox) directory and report the results. If the test fails, you can double click on a file to see the diff against the Golden Copy.
 
