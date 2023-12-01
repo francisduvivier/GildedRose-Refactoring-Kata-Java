@@ -10,8 +10,8 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (int i = 0; i < items.length; i++) {
-            items[i].increaseAge(1);
+        for (AgingItem item : items) {
+            item.increaseAge(1);
         }
     }
 }
