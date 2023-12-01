@@ -6,20 +6,17 @@ public class StandardAgingItem extends AgingItem {
     }
 
     @Override
-    public void increaseAge(int amount) {
+    public void increaseAge() {
         this.sellIn--;
         if (this.quality == 0) {
             return;
         }
-        this.quality -= amount;
-        int amountOverExpiry = amount - (Math.max(0, this.sellIn + 1));
-        if (amountOverExpiry > 0) {
+        this.quality--;
+
+        if (this.quality > 0 && // Ensure quality does not go below 0
+            this.sellIn < 0) {
             // The amount of time that goes over the expiry is counted double
-            this.quality -= amountOverExpiry;
-        }
-        // Make sure minimum quality is 0
-        if (this.quality < 0) {
-            this.quality = 0;
+            this.quality--;
         }
     }
 }

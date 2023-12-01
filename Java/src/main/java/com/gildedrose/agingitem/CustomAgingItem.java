@@ -6,7 +6,7 @@ public class CustomAgingItem extends AgingItem {
     }
 
     @Override
-    public void increaseAge(int amount) {
+    public void increaseAge() {
         if (!this.name.equals("Aged Brie")
             && !this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (this.quality > 0) {
