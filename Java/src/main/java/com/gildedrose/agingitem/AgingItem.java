@@ -2,31 +2,30 @@ package com.gildedrose.agingitem;
 
 import com.gildedrose.Item;
 
-public class AgingItem {
-    private final Item item;
+public class AgingItem extends Item {
 
     public AgingItem(String name, int sellIn, int quality) {
-        item = new Item(name, sellIn, quality);
+        super(name, sellIn, quality);
     }
 
     public int getQuality() {
-        return this.item.quality;
+        return this.quality;
     }
 
     public void increaseAge(int amount) {
-        this.item.sellIn--;
-        if (this.item.quality == 0) {
+        this.sellIn--;
+        if (this.quality == 0) {
             return;
         }
-        this.item.quality -= amount;
-        int amountOverExpiry = amount - (this.item.sellIn + 1);
+        this.quality -= amount;
+        int amountOverExpiry = amount - (this.sellIn + 1);
         if (amountOverExpiry > 0) {
             // The amount of time that goes over the expiry is counted double
-            this.item.quality -= amountOverExpiry;
+            this.quality -= amountOverExpiry;
         }
         // Make sure minimum quality is 0
-        if (this.item.quality < 0) {
-            this.item.quality = 0;
+        if (this.quality < 0) {
+            this.quality = 0;
         }
     }
 }
