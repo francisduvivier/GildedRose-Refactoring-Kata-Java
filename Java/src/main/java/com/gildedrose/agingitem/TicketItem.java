@@ -1,8 +1,6 @@
 package com.gildedrose.agingitem;
 
 public class TicketItem extends AgingItem {
-    private static final int MAX_ITEM_QUALITY = 50;
-
     public TicketItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }

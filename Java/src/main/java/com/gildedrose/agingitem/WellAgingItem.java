@@ -1,8 +1,6 @@
 package com.gildedrose.agingitem;
 
 public class WellAgingItem extends AgingItem {
-    private static final int MAX_ITEM_QUALITY = 50;
-
     public WellAgingItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
     }
