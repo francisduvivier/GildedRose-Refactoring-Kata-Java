@@ -9,7 +9,7 @@ public class TexttestFixture {
         AgingItem[] items = new AgingItem[]{
             new StandardAgingItem("+5 Dexterity Vest", 10, 20), //
             new WellAgingItem("Aged Brie", 2, 0), //
-            new CustomAgingItem("Elixir of the Mongoose", 5, 7), //
+            new StandardAgingItem("Elixir of the Mongoose", 5, 7), //
             new LegendaryItem("Sulfuras, Hand of Ragnaros", 0, 80), //
             new LegendaryItem("Sulfuras, Hand of Ragnaros", -1, 80),
             new CustomAgingItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
