@@ -53,7 +53,7 @@ public class WellAgingItemTest {
     }
 
     /**
-     * Once the sell by date has passed, Quality degrades twice as fast
+     * Once the sell by date has passed, Quality increases twice as fast
      */
     @Test
     public void increaseQualityAtDoubleSpeedWhenSellInHasPassed() {
@@ -73,7 +73,7 @@ public class WellAgingItemTest {
 
     /**
      * Edge case test for:
-     * Once the sell by date has passed, Quality degrades twice as fast
+     * Once the sell by date has passed, Quality increases twice as fast
      */
     @Test
     public void increaseQualityAtDoubleSpeedTo50WhenSellInHasPassed() {
