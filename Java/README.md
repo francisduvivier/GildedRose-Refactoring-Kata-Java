@@ -1,4 +1,8 @@
-# Gilded Rose starting position in Java
+# Gilded Rose Refactored
+## Run the unit tests from Command-Line
+```
+./gradlew -q test
+```
 
 ## Run the TextTest Fixture from Command-Line
 
