@@ -7,6 +7,6 @@ public abstract class ExpiringItem extends AgingItem {
 
     @Override
     public void increaseAge() {
-        // TODO
+        this.sellIn--;
     }
 }
