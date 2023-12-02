@@ -1,13 +1,13 @@
 package com.gildedrose.agingitem;
 
-public class StandardAgingItem extends ExpiringItem {
+public class DegradingItem extends ExpiringItem {
     private final int qualityUpdateMultiplier;
 
-    public StandardAgingItem(String name, int sellIn, int quality) {
+    public DegradingItem(String name, int sellIn, int quality) {
         this(name, sellIn, quality, 1);
     }
 
-    protected StandardAgingItem(String name, int sellIn, int quality, int qualityUpdateMultiplier) {
+    protected DegradingItem(String name, int sellIn, int quality, int qualityUpdateMultiplier) {
         super(name, sellIn, quality);
         this.qualityUpdateMultiplier = qualityUpdateMultiplier;
     }
