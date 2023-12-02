@@ -10,7 +10,7 @@ public class TexttestFixture {
             new StandardAgingItem("+5 Dexterity Vest", 10, 20), //
             new WellAgingItem("Aged Brie", 2, 0), //
             new StandardAgingItem("Elixir of the Mongoose", 5, 7), //
-            new LegendaryItem("Sulfuras, Hand of Ragnaros", 0, 80), //
+            new LegendaryItem("Sulfuras, Hand of Ragnaros", 80), //
             new LegendaryItem("Sulfuras, Hand of Ragnaros", -1, 80),
             new TicketItem("Backstage passes to a TAFKAL80ETC concert", 15, 20),
             new TicketItem("Backstage passes to a TAFKAL80ETC concert", 10, 49),

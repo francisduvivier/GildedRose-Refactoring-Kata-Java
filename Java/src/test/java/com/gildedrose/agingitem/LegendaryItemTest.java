@@ -11,7 +11,7 @@ public class LegendaryItemTest {
     @Test
     public void keepsQualityWhenAgesBeforeExpiry() {
         int startQuality = 20;
-        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", 10, startQuality);
+        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", startQuality);
 
         item.increaseAge();
 
@@ -26,7 +26,7 @@ public class LegendaryItemTest {
     public void keepsQualityWhenAgesRightBeforeSellIn() {
         int startQuality = 20;
         int startSellIn = 10;
-        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", startSellIn, startQuality);
+        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", startQuality);
 
         for (int i = 0; i < startSellIn; i++) {
             item.increaseAge();
@@ -41,8 +41,7 @@ public class LegendaryItemTest {
     @Test
     public void neverIncreasesQuality() {
         int startQuality = 45;
-        int startSellIn = 10;
-        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", startSellIn, startQuality);
+        LegendaryItem item = new LegendaryItem("Sulfuras, Hand of Ragnaros", startQuality);
 
         int amountToAge = 55 - startQuality;
         for (int i = 0; i < amountToAge; i++) {
