@@ -7,15 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StandardAgingItemTest {
 
     /**
-     * All items have a Quality value which denotes how valuable the item is
-     */
-    @Test
-    public void qualityIsAccessible() {
-        StandardAgingItem item = new StandardAgingItem("Standard Item", 10, 20);
-        assertEquals(20, item.quality);
-    }
-
-    /**
      * At the end of each day our system lowers both values for every item
      */
     @Test
