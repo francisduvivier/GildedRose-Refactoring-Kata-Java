@@ -1,6 +1,6 @@
 package com.gildedrose.agingitem;
 
-public class StandardAgingItem extends AgingItem {
+public class StandardAgingItem extends ExpiringItem {
     private final int qualityUpdateMultiplier;
 
     public StandardAgingItem(String name, int sellIn, int quality) {
@@ -14,7 +14,7 @@ public class StandardAgingItem extends AgingItem {
 
     @Override
     public void increaseAge() {
-        this.sellIn--;
+        super.increaseAge();
         if (this.quality == 0) {
             return;
         }
