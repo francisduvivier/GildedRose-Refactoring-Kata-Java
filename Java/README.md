@@ -1,6 +1,6 @@
 # Gilded Rose Refactored
 ## JDK version
-This project was built with Oracle OpenJDK 15
+This project was built with JDK version 11
 
 ## Run the unit tests from Command-Line
 ```
