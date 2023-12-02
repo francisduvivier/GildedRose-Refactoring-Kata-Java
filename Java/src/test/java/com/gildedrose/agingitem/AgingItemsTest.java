@@ -17,6 +17,17 @@ public class AgingItemsTest {
     }
 
     /**
+     * All items have a SellIn value which denotes the number of days we have to sell the item
+     */
+    @Test
+    public void sellInIsAccessible() {
+        int givenSellIn = 10;
+        AgingItemImpl item = new AgingItemImpl("Test Item", givenSellIn, 20);
+
+        assertEquals(givenSellIn, item.sellIn);
+    }
+
+    /**
      * All items have a Quality value which denotes how valuable the item is
      */
     @Test
@@ -25,5 +36,15 @@ public class AgingItemsTest {
         AgingItemImpl item = new AgingItemImpl("Test Item", 10, givenQuality);
 
         assertEquals(givenQuality, item.quality);
+    }
+
+    /**
+     * Conforms to item stringification in order to make TextTest work
+     */
+    @Test
+    public void hasCorrectStringification() {
+        AgingItemImpl item = new AgingItemImpl("Test Item", 10, 20);
+
+        assertEquals("Test Item, 10, 20", item.toString());
     }
 }
