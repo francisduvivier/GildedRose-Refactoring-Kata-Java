@@ -4,17 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AgingItemsTest {
-    private static class AgingItemImpl extends AgingItem {
-        public AgingItemImpl(String name, int sellIn, int quality) {
-            super(name, sellIn, quality);
-        }
+public abstract class AgingItemsTest {
 
-        @Override
-        public void increaseAge() {
-            // Do nothing
-        }
-    }
+    protected abstract AgingItem createItem(String name, int sellIn, int quality);
 
     /**
      * All items have a SellIn value which denotes the number of days we have to sell the item
@@ -22,7 +14,7 @@ public class AgingItemsTest {
     @Test
     public void sellInIsAccessible() {
         int givenSellIn = 10;
-        AgingItemImpl item = new AgingItemImpl("Test Item", givenSellIn, 20);
+        AgingItem item = createItem("Test Item", givenSellIn, 20);
 
         assertEquals(givenSellIn, item.sellIn);
     }
@@ -33,7 +25,7 @@ public class AgingItemsTest {
     @Test
     public void qualityIsAccessible() {
         int givenQuality = 20;
-        AgingItemImpl item = new AgingItemImpl("Test Item", 10, givenQuality);
+        AgingItem item = createItem("Test Item", 10, givenQuality);
 
         assertEquals(givenQuality, item.quality);
     }
@@ -43,7 +35,7 @@ public class AgingItemsTest {
      */
     @Test
     public void hasCorrectStringification() {
-        AgingItemImpl item = new AgingItemImpl("Test Item", 10, 20);
+        AgingItem item = createItem("Test Item", 10, 20);
 
         assertEquals("Test Item, 10, 20", item.toString());
     }

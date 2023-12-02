@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class WellAgingItemTest {
+public class WellAgingItemTest extends ExpiringItemTest {
     /**
      * At the end of each day our system lowers both values for every item
      */
@@ -87,5 +87,10 @@ public class WellAgingItemTest {
         }
 
         assertEquals(50, item.quality);
+    }
+
+    @Override
+    protected AgingItem createItem(String name, int sellIn, int quality) {
+        return new WellAgingItem(name, sellIn, quality);
     }
 }

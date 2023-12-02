@@ -4,13 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ExpiringItemTest {
-
-    private static class ExpiringItemImpl extends ExpiringItem {
-        public ExpiringItemImpl(String name, int sellIn, int quality) {
-            super(name, sellIn, quality);
-        }
-    }
+public abstract class ExpiringItemTest extends AgingItemsTest {
 
     /**
      * At the end of each day our system lowers sell in.
@@ -18,7 +12,7 @@ public class ExpiringItemTest {
     @Test
     public void decreasesQualityByOneWhenAgesBeforeExpiry() {
         int startSellIn = 10;
-        ExpiringItemImpl item = new ExpiringItemImpl("Expiring Item", startSellIn, 20);
+        AgingItem item = createItem("Expiring Item", startSellIn, 20);
 
         item.increaseAge();
 
@@ -33,7 +27,7 @@ public class ExpiringItemTest {
     public void decreasesQualityByOneWhenAgesRightBeforeExpiry() {
         int startQuality = 20;
         int startSellIn = 10;
-        ExpiringItemImpl item = new ExpiringItemImpl("Expiring Item", startSellIn, startQuality);
+        AgingItem item = createItem("Expiring Item", startSellIn, startQuality);
 
         int amountOverSellin = 1;
         for (int i = 0; i < startSellIn + amountOverSellin; i++) {

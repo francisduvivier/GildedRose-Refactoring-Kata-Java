@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DegradingItemTest {
+public class DegradingItemTest extends ExpiringItemTest {
 
     /**
      * At the end of each day our system lowers both values for every item
@@ -12,7 +12,7 @@ public class DegradingItemTest {
     @Test
     public void decreasesQualityByOneWhenAgesBeforeExpiry() {
         int startQuality = 20;
-        DegradingItem item = new DegradingItem("Standard Item", 10, startQuality);
+        AgingItem item = createItem("Standard Item", 10, startQuality);
 
         item.increaseAge();
 
@@ -27,7 +27,7 @@ public class DegradingItemTest {
     public void decreasesQualityByOneWhenAgesRightBeforeExpiry() {
         int startQuality = 20;
         int startSellIn = 10;
-        DegradingItem item = new DegradingItem("Standard Item", startSellIn, startQuality);
+        AgingItem item = createItem("Standard Item", startSellIn, startQuality);
 
         for (int i = 0; i < startSellIn; i++) {
             item.increaseAge();
@@ -43,7 +43,7 @@ public class DegradingItemTest {
     public void neverDecreasesQualityBelowZero() {
         int startQuality = 20;
         int startSellIn = 10;
-        DegradingItem item = new DegradingItem("Standard Item", startSellIn, startQuality);
+        AgingItem item = createItem("Standard Item", startSellIn, startQuality);
 
         for (int i = 0; i < startQuality + 10; i++) {
             item.increaseAge();
@@ -59,7 +59,7 @@ public class DegradingItemTest {
     public void decreaseQualityAtDoubleSpeedWhenSellInHasPassed() {
         int startQuality = 20;
         int startSellIn = 10;
-        DegradingItem item = new DegradingItem("Standard Item", startSellIn, startQuality);
+        AgingItem item = createItem("Standard Item", startSellIn, startQuality);
 
         int extraAgeAfterSellInPassed = 3;
         for (int i = 0; i < startSellIn + extraAgeAfterSellInPassed; i++) {
@@ -79,7 +79,7 @@ public class DegradingItemTest {
     public void decreaseQualityAtDoubleSpeedToZeroWhenSellInHasPassed() {
         int startQuality = 19;
         int startSellIn = 10;
-        DegradingItem item = new DegradingItem("Standard Item", startSellIn, startQuality);
+        AgingItem item = createItem("Standard Item", startSellIn, startQuality);
 
         int minimalDaysToZeroAfterSellInPassed = (int) Math.ceil((startQuality - startSellIn) / 2.0);
         for (int i = 0; i < startSellIn + minimalDaysToZeroAfterSellInPassed; i++) {
@@ -87,5 +87,10 @@ public class DegradingItemTest {
         }
 
         assertEquals(0, item.quality);
+    }
+
+    @Override
+    protected AgingItem createItem(String name, int sellIn, int quality) {
+        return new DegradingItem(name, sellIn, quality);
     }
 }

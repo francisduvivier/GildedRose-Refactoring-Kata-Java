@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TicketItemTest {
+public class TicketItemTest extends ExpiringItemTest {
     /**
      * Quality increases by 2 when there are 10 days or less
      */
@@ -88,5 +88,10 @@ public class TicketItemTest {
             item.increaseAge();
         }
         assertEquals(0, item.quality);
+    }
+
+    @Override
+    protected AgingItem createItem(String name, int sellIn, int quality) {
+        return new TicketItem(name, sellIn, quality);
     }
 }
