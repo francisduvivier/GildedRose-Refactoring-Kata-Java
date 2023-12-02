@@ -22,8 +22,10 @@ class GildedRoseTest {
 
     @Test
     void callsIncreaseAgeOnEveryItemWhenCallingUpdateQuality() {
-        SpiedUponAgingItem spy = new SpiedUponAgingItem("foo", 0, 0);
-        AgingItem[] items = new AgingItem[]{spy};
+        SpiedUponAgingItem[] items = new SpiedUponAgingItem[]{
+            new SpiedUponAgingItem("foo", 0, 0),
+            new SpiedUponAgingItem("bar", 0, 0)
+        };
         GildedRose app = new GildedRose(items);
 
         int updateCalls = 3;
@@ -31,7 +33,9 @@ class GildedRoseTest {
             app.updateQuality();
         }
 
-        assertEquals(spy.totalAgeIncrease, updateCalls);
+        for (SpiedUponAgingItem itemInGildedRose : items) {
+            assertEquals(itemInGildedRose.totalAgeIncrease, updateCalls);
+        }
     }
 
     private static class SpiedUponAgingItem extends AgingItem {
