@@ -1,4 +1,7 @@
 # Gilded Rose Refactored
+## JDK version
+This project was built with Oracle OpenJDK 15
+
 ## Run the unit tests from Command-Line
 ```
 ./gradlew -q test
