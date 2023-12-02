@@ -4,7 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LegendaryItemTest {
+public class LegendaryItemTest extends AgingItemsTest {
+
+    @Override
+    protected AgingItem createItem(String name, int sellIn, int quality) {
+        //noinspection deprecation
+        return new LegendaryItem(name, sellIn, quality);
+    }
+
     /**
      * Being a legendary item, never has to be sold or decreases in Quality
      */

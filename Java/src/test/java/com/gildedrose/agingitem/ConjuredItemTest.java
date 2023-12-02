@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * "Conjured" items degrade in Quality twice as fast as normal items
  */
-public class ConjuredItemTest {
+public class ConjuredItemTest extends ExpiringItemTest {
 
     /**
      * At the end of each day our system lowers both values for every item
@@ -90,5 +90,10 @@ public class ConjuredItemTest {
         }
 
         assertEquals(0, item.quality);
+    }
+
+    @Override
+    protected AgingItem createItem(String name, int sellIn, int quality) {
+        return new ConjuredItem(name, sellIn, quality);
     }
 }
